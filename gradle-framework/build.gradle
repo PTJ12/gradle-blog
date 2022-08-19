@@ -1,0 +1,51 @@
+plugins {
+    id 'java'
+}
+
+group 'cn.ut'
+version '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    //mybatis-plus
+    implementation group: 'com.baomidou', name: 'mybatis-plus-boot-starter', version: '3.3.1.tmp'
+    //mysql数据库依赖
+    runtimeOnly 'mysql:mysql-connector-java'
+    //devtool 用于配置热部署的，可以删去
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+    implementation 'javax.xml.bind:jaxb-api:2.3.0'
+    //redis
+//        implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    //common-pool2对象池依赖
+    implementation 'org.apache.commons:commons-pool2'
+//        swagger3
+    implementation 'io.springfox:springfox-boot-starter:3.0.0'
+    //knife4j
+    implementation 'com.github.xiaoymin:knife4j-spring-boot-starter:3.0.2'
+
+//        implementation 'org.springframework.boot:spring-boot-starter-security'
+
+}
+
+bootJar {
+    enabled = false
+}
+
+jar {
+    enabled = true
+}
+
+test {
+    useJUnitPlatform()
+}

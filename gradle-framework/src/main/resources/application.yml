@@ -1,0 +1,30 @@
+server:
+  port: 7777
+spring:
+  # 数据源配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/gradle_blog?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: qwer1234
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 5MB
+
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+# Mybatis-plus配置
+mybatis-plus:
+  configuration:
+    # 日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: delFlag
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      id-type: auto
